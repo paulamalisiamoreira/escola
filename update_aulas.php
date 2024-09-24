@@ -12,27 +12,6 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Registro atualizado com sucesso";
-        } else {
-            echo "Erro: " . $sql . "<br>" . $conn->error;
-        }
-        $conn ->close();
-        header ("Location: read_aulas.php");
-        exit();
-    }
-
-
-    include 'db.php';
-    $id_professor = $_GET['id_professor'];
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $nome_professor = $_POST['nome_professor'];
-        $data_nascimento = $_POST['data_nascimento'];
-        $CPF = $_POST['CPF'];
-        $materia = $_POST['materia'];
-    
-        $sql = "UPDATE professor SET nome_professor='$nome_professor', data_nascimento='$data_nascimento', CPF='$CPF', materia='$materia' WHERE id_professor='$id_professor'";
-    
-        if ($conn->query($sql) === TRUE) {
             header("Location: read_professor.php");
             exit();
         } else {
@@ -66,6 +45,5 @@
         <input type="text" name="tipo_sala" class='input' value="<?php echo $row['tipo_sala']; ?>" required>
         <input type="submit"  class='botaozinho' value="Atualizar">
     </form>
-
 </body>
 </html>
