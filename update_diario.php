@@ -6,7 +6,6 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        $id_aula =  $_POST['id_aula'];
         $id_professor =  $_POST['id_professor'];
         $id_diario = $_POST['id_diario'];
         $hora_aula = $_POST['hora_aula'];
@@ -14,17 +13,18 @@
      
 
         $sql = "UPDATE diario SET hora_aula='$hora_aula', turma='$turma' WHERE id_diario= '$id_diario';";
-
+        
         if ($conn->query($sql) === TRUE) {
             echo "Registro atualizado com sucesso";
+            header("Location: read_professor.php");
+            exit();
         } else {
             echo "Erro: " . $sql . "<br>" . $conn->error;
         }
         $conn ->close();
         header ("Location: read.php");
         exit();
-    
-
+    }
     $sql = "SELECT * FROM diario WHERE id_diario='$id_diario'";
     $result = $conn -> query($sql);
     $row = $result -> fetch_assoc();
@@ -34,9 +34,6 @@
 
     $sql_aulas = "SELECT id_aula, numero_sala FROM aulas WHERE id_aula = '$id_aula';";
     $result_aulas = $conn->query($sql_aulas);
-
-    }
-
 ?>
 
 <!DOCTYPE html>
