@@ -16,13 +16,39 @@
             echo "Erro: " . $sql . "<br>" . $conn->error;
         }
         $conn ->close();
-        header ("Location: read.php");
+        header ("Location: read_aulas.php");
         exit();
     }
-    $sql = "SELECT * FROM aulas WHERE id_aula = '$id_aula'";
-    $result = $conn -> query($sql);
-    $row = $result -> fetch_assoc();
-?>
+
+
+    include 'db.php';
+    $id_professor = $_GET['id_professor'];
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $nome_professor = $_POST['nome_professor'];
+        $data_nascimento = $_POST['data_nascimento'];
+        $CPF = $_POST['CPF'];
+        $materia = $_POST['materia'];
+    
+        $sql = "UPDATE professor SET nome_professor='$nome_professor', data_nascimento='$data_nascimento', CPF='$CPF', materia='$materia' WHERE id_professor='$id_professor'";
+    
+        if ($conn->query($sql) === TRUE) {
+            header("Location: read_professor.php");
+            exit();
+        } else {
+            echo "Erro: " . $sql . "<br>" . $conn->error;
+        }
+    }
+    $sql = "SELECT * FROM aulas WHERE id_aula = '$id_aula'";;
+    $result = $conn->query($sql);
+    
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    } else {
+        die("Registro não encontrado.");
+    }
+  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +59,7 @@
     <title>Update Aulas</title>
 </head>
 <body class='centralizar'>
-    <form method="POST" action=" update_aulas.php?id=<?php echo $row['id_aula'];?>">
+    <form method="POST" action=" update_aulas.php?id_aulas=<?php echo $row['id_aula'];?>">
         <label for="numero_sala">Numero Sala</label>
         <input type="number" name="numero_sala" class='input' value="<?php echo $row['numero_sala']; ?>" required>
         <label for="tipo_sala">Tipo Sala</label>
