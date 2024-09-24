@@ -10,7 +10,7 @@
     <div class='centralizar'>
         <h1>Todas as páginas para se acessar</h1>
         <p>Inserir Dados</p>
-        <a href="create.php"><button>Create</button></a>
+        <a href="create_index.php"><button>Create</button></a>
         <p>Visualizar Dados Gerais</p>
         <a href="read.php" ><button>Read</button></a>
         <p>Visualizar Dados do Professor</p>

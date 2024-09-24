@@ -43,6 +43,9 @@ button:hover {
 .input{
     border-radius: 20px;
     height: 30px;
+    background-color:  #ffbb00;
+    font-weight: bold;
+    color: white;
 }
 
 .botaozinho{
@@ -54,3 +57,24 @@ button:hover {
     color: white;
     border: none;
 }
+
+.botao_Escolha{
+    border-radius: 20px;
+    width: 10%;
+    height: 5%;
+    background-color:  #ffbb00;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+
+.botao_Input{
+    border-radius: 20px;
+    width: 8%;
+    height: 4%;
+    background-color:  #ffbb00;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+

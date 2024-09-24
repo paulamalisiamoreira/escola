@@ -1,7 +1,8 @@
 <?php
+
     include 'db.php';
 
-    $id_diario = $_GET['id_diario'];
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -10,6 +11,7 @@
         $id_diario = $_POST['id_diario'];
         $hora_aula = $_POST['hora_aula'];
         $turma = $_POST['turma'];
+     
 
         $sql = "UPDATE diario SET hora_aula='$hora_aula', turma='$turma' WHERE id_diario= '$id_diario';";
 
@@ -21,16 +23,20 @@
         $conn ->close();
         header ("Location: read.php");
         exit();
-    }
+    
+
     $sql = "SELECT * FROM diario WHERE id_diario='$id_diario'";
     $result = $conn -> query($sql);
     $row = $result -> fetch_assoc();
 
-    $sql_professores = "SELECT id_professor, nome_professor FROM professor";
+    $sql_professores = "SELECT id_professor, nome_professor FROM professor WHERE id_professor= '$id_professor';" ;
     $result_professores = $conn->query($sql_professores);
 
-    $sql_aulas = "SELECT id_aula, numero_sala FROM aulas";
+    $sql_aulas = "SELECT id_aula, numero_sala FROM aulas WHERE id_aula = '$id_aula';";
     $result_aulas = $conn->query($sql_aulas);
+
+    }
+
 ?>
 
 <!DOCTYPE html>
