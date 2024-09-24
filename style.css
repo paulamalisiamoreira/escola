@@ -1,0 +1,56 @@
+body {
+    background-color: #fffefe;
+    margin: 0;
+}
+button {
+    background-color: #ffbb00;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 200px;
+    height: 50px;
+}
+table {
+    margin: 20px auto; 
+}
+
+th, td {
+    padding: 12px; 
+    text-align: center; 
+    border: 1px solid #000000;
+    background-color: #ffffff; 
+}
+
+th {
+    background-color: #f3b746; 
+}
+
+.centralizar{
+    text-align: center;
+}
+
+p{
+    font-size: 1.5rem;
+} 
+
+button:hover {
+    background-color: #f3b746;
+}
+
+.input{
+    border-radius: 20px;
+    height: 30px;
+}
+
+.botaozinho{
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    background-color:  #ffbb00;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
